@@ -30,39 +30,46 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+  
     // Crear un objeto con los datos del formulario
     const formData = new FormData();
     formData.append("process_type", tipoProceso);
     formData.append("discount_percent", porcentaje);
-    formData.append("money_formula", formula);
+  
+    if (formula) {
+      formData.append("money_formula", formula);
+    }
+    if (periodoPago) {
+      formData.append("payment_period", periodoPago);
+    }
+  
     formData.append("periodoRetroactivo", periodoRetroactivo);
-    formData.append("payment_period", periodoPago);
+  
     if (archivo) {
       formData.append("file", archivo);
     }
-
+  
     try {
       // Llamada al endpoint `procesar`
       const response = await fetch("http://localhost:8000/procesar", {
         method: "POST",
         body: formData,
       });
-
+  
       if (!response.ok) {
         throw new Error("Error al procesar los datos");
       }
-
+  
       const result = await response.json();
       setRutaArchivo(result.file_path); // Ruta del archivo proporcionada por la API
     } catch (error) {
-      
       console.error("Error al procesar:", error);
       alert("Hubo un error al procesar los datos.");
     } finally {
       setLoading(false);
     }
   };
+  
 
   const handleDownload = async () => {
     if (!rutaArchivo) return;
