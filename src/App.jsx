@@ -42,8 +42,10 @@ function App() {
     if (periodoPago) {
       formData.append("payment_period", periodoPago);
     }
-  
-    formData.append("periodoRetroactivo", periodoRetroactivo);
+    
+    if(periodoRetroactivo) {
+      formData.append("retroactive_period", periodoRetroactivo);
+    }
   
     if (archivo) {
       formData.append("file", archivo);
@@ -69,7 +71,6 @@ function App() {
       setLoading(false);
     }
   };
-  
 
   const handleDownload = async () => {
     if (!rutaArchivo) return;
@@ -98,7 +99,7 @@ function App() {
   return (
     <main className="mx-auto">
       <div className="p-6">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Procesamiento de Datos</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Calculadora</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">Tipo de Proceso</label>
