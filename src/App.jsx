@@ -156,7 +156,7 @@ function App() {
                 </div>
 
                 <div>
-                  <label htmlFor="periodoRetroactivo" className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">Período de Pagos Retroactivos</label>
+                  <label htmlFor="periodoRetroactivo" className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">Quincena retroactiva</label>
                   <input
                     id="periodoRetroactivo"
                     type="text"
