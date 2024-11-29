@@ -77,7 +77,7 @@ function App() {
 
     try {
       // Llamada al endpoint `descargar`
-      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/descargar/${rutaArchivo}`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/descargar/?fn=${rutaArchivo}`);
 
       if (!response.ok) {
         throw new Error("Error al descargar el archivo");
