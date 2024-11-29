@@ -53,7 +53,7 @@ function App() {
   
     try {
       // Llamada al endpoint `procesar`
-      const response = await fetch("http://localhost:8000/procesar", {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/procesar`, {
         method: "POST",
         body: formData,
       });
@@ -77,7 +77,7 @@ function App() {
 
     try {
       // Llamada al endpoint `descargar`
-      const response = await fetch(`http://localhost:8000/descargar/${rutaArchivo}`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/descargar/${rutaArchivo}`);
 
       if (!response.ok) {
         throw new Error("Error al descargar el archivo");
@@ -87,7 +87,7 @@ function App() {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = rutaArchivo.split('/')[3]; // Nombre del archivo generado
+      link.download = rutaArchivo; // Nombre del archivo generado
       link.click();
       window.URL.revokeObjectURL(url);
     } catch (error) {
@@ -229,7 +229,7 @@ function App() {
         <div className="bg-gray-50 dark:bg-gray-700 px-4 py-5 sm:px-6">
           <div className="text-center">
             <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-              Archivo generado: {rutaArchivo.split('/')[3]}
+              Archivo generado: {rutaArchivo}
             </p>
             <div className="mt-3">
               <button
