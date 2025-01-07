@@ -34,7 +34,10 @@ function App() {
     // Crear un objeto con los datos del formulario
     const formData = new FormData();
     formData.append("process_type", tipoProceso);
-    formData.append("discount_percent", porcentaje);
+
+    if (porcentaje) {
+      formData.append("discount_percent", porcentaje);
+    }
   
     if (formula) {
       formData.append("money_formula", formula);
@@ -120,24 +123,24 @@ function App() {
             </div>
           </div>
 
-          <div>
-            <label htmlFor="porcentaje" className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">Porcentaje</label>
-            <input
-              id="porcentaje"
-              type="number"
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md text-sm shadow-sm placeholder-gray-400 dark:placeholder-gray-400
-                         focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500
-                         disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200 dark:disabled:bg-gray-800 dark:disabled:text-gray-400 dark:disabled:border-gray-700
-                         transition duration-150 ease-in-out"
-              value={porcentaje}
-              onChange={(e) => setPorcentaje(e.target.value)}
-              placeholder="Ingrese el porcentaje"
-            />
-          </div>
-
           {
             tipoProceso === '1' && (
               <>
+                <div>
+                  <label htmlFor="porcentaje" className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">Porcentaje</label>
+                  <input
+                    id="porcentaje"
+                    type="number"
+                    className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md text-sm shadow-sm placeholder-gray-400 dark:placeholder-gray-400
+                              focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500
+                              disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200 dark:disabled:bg-gray-800 dark:disabled:text-gray-400 dark:disabled:border-gray-700
+                              transition duration-150 ease-in-out"
+                    value={porcentaje}
+                    onChange={(e) => setPorcentaje(e.target.value)}
+                    placeholder="Ingrese el porcentaje"
+                  />
+                </div>
+
                 <div>
                   <label htmlFor="formula" className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">Fórmula</label>
                   <select
