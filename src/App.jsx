@@ -4,6 +4,7 @@ import { Upload } from 'lucide-react'
 function App() {
   const [tipoProceso, setTipoProceso] = useState("1");
   const [porcentaje, setPorcentaje] = useState("");
+  const [porcentajeMod, setPorcentajeMod] = useState("");
   const [formula, setFormula] = useState("");
   const [periodoRetroactivo, setPeriodoRetroactivo] = useState("");
   const [periodoPago, setPeriodoPago] = useState("");
@@ -37,6 +38,10 @@ function App() {
 
     if (porcentaje) {
       formData.append("discount_percent", porcentaje);
+    }
+
+    if (porcentajeMod) {
+      formData.append("modified_discount_percent", porcentajeMod);
     }
   
     if (formula) {
@@ -138,6 +143,21 @@ function App() {
                     value={porcentaje}
                     onChange={(e) => setPorcentaje(e.target.value)}
                     placeholder="Ingrese el porcentaje"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="porcentajeMod" className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">Modificar porcentaje (opcional)</label>
+                  <input
+                    id="porcentajeMod"
+                    type="number"
+                    className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md text-sm shadow-sm placeholder-gray-400 dark:placeholder-gray-400
+                              focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500
+                              disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200 dark:disabled:bg-gray-800 dark:disabled:text-gray-400 dark:disabled:border-gray-700
+                              transition duration-150 ease-in-out"
+                    value={porcentajeMod}
+                    onChange={(e) => setPorcentajeMod(e.target.value)}
+                    placeholder="Ingrese el nuevo porcentaje"
                   />
                 </div>
 
