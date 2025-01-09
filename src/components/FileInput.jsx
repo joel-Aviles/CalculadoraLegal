@@ -11,6 +11,7 @@ const FileInput = (props) => {
         name,
         onChange,
         file,
+        error
     } = props
 
     return (
@@ -31,9 +32,11 @@ const FileInput = (props) => {
                             />
                         </label>
                     </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                    {file && file.name}
-                </p>
+                    {
+                        !error 
+                            ? (<p className="text-xs text-gray-500 dark:text-gray-400">{file && file.name}</p>)
+                            : (<span htmlFor={id} className='text-xs font-light text-red-400'>{error}</span>)
+                    }
                 </div>
             </div>
         </div>
@@ -46,7 +49,8 @@ FileInput.propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
     onChange: PropTypes.func,
-    file: PropTypes.object
+    file: PropTypes.object,
+    error: PropTypes.string
 };
 
 export default FileInput

@@ -9,7 +9,8 @@ const Select = (props) => {
 		id = "genericSelect",
 		value,
 		onChange,
-		options
+		options,
+		error
 	} = props
 
 	return (
@@ -28,6 +29,7 @@ const Select = (props) => {
 					</option>
 				))}
 			</select>
+			<span htmlFor={id} className='text-xs font-light text-red-400'>{error}</span>
 		</div>
 	)
 }
@@ -37,7 +39,8 @@ Select.propTypes = {
 	id: PropTypes.string,
 	value: PropTypes.string,
 	onChange: PropTypes.func,
-	options: PropTypes.arrayOf(object)
+	options: PropTypes.arrayOf(object),
+	error: PropTypes.string
 };
 
 export default Select

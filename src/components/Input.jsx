@@ -10,7 +10,8 @@ const Input = (props) => {
         onChange, 
         placeholder = "Placeholder", 
         disabled = false,
-        type = "text"
+        type = "text",
+        error,
     } = props
 
     return (
@@ -27,6 +28,7 @@ const Input = (props) => {
                 placeholder={placeholder}
                 disabled={disabled}
             />
+            <span htmlFor={id} className='text-xs font-light text-red-400'>{error}</span>
         </div>
     );
 }
@@ -38,7 +40,8 @@ Input.propTypes = {
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
-    type: PropTypes.string
+    type: PropTypes.string,
+    error: PropTypes.string
 };
 
 export default Input
