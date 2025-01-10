@@ -1,4 +1,4 @@
-import FORM_FIELD_MAPPING from '../Constants'
+import { FORM_FIELD_MAPPING } from '../Constants'
 
 export const formUtils = {
     createFormData(formState) {
