@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import Input from "./components/input";
-import Select from './components/Select';
-import RadioButtons from './components/RadioButtons';
-import FileInput from './components/FileInput';
-import DowloadFile from './components/DowloadFile';
+import { 
+	Input, 
+	Select, 
+	RadioButtons, 
+	FileInput, 
+	DownloadFile 
+  } from './components';
 import { formUtils } from './utils/formUtils';
 import { apiService } from './utils/apiService';
 
@@ -213,7 +215,7 @@ function App() {
 						/>
 
 						<div className='aspect-auto'>
-							{rutaArchivo && <DowloadFile filePath={rutaArchivo} onClick={handleDownload}/>}
+							{rutaArchivo && <DownloadFile filePath={rutaArchivo} onClick={handleDownload}/>}
 						</div>
 					</div>
 				</section>
