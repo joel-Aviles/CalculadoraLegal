@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const DowloadFile = (props) => {
+const DownloadFile = (props) => {
 
     const {
         filePath,
@@ -28,9 +28,9 @@ const DowloadFile = (props) => {
     )
 }
 
-DowloadFile.propTypes = {
+DownloadFile.propTypes = {
     filePath: PropTypes.string,
     onClick: PropTypes.func
 }
 
-export default DowloadFile
+export default DownloadFile
