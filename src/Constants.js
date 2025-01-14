@@ -1,4 +1,4 @@
-const ENVARIOMENT = "dev"
+const ENVARIOMENT = "prod"
 export const API_BASE_URL = ENVARIOMENT === "prod" ? import.meta.env.VITE_PROD_BASE_URL : import.meta.env.VITE_BASE_URL;
 export const FORM_FIELD_MAPPING = {
   tipoProceso: "process_type",

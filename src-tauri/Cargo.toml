@@ -1,6 +1,6 @@
 [package]
 name = "calculadoralegal"
-version = "0.1.4"
+version = "1.2.0"
 description = "calculadora de descuentos al salario de un trabajador"
 authors = ["Joel Aviles"]
 edition = "2021"
