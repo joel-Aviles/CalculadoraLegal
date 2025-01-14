@@ -1,5 +1,6 @@
-[ ] configurar carpeta de descarga personalizada
-    - voy a usar plugin-fs de tauri para acceder al sistema de archivos
-        - en el directorio de la aplicacion voy a crear un archivo para cargar la configuracion de la palicacion
+[ ] usar un modal para mostrar el menu de configuración
+    - establecer una ruta personalizada para guardar el archivo descargado
+    - usar plugin-fs de tauri para acceder al sistema de archivos
+        - en el directorio de la aplicacion crear un archivo para cargar la configuracion de la palicacion
             - por el momento solo se va guardar la ruta para descargar el archivo generado por el api
-        - voy a usar BaseDirectory.* para establecer la ruta donde se guardara el archivo descargado
+        - usar el blob para crear el archivo en un directorio especifico antes de que se descarge
